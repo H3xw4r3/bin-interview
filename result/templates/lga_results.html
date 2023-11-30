@@ -1,0 +1,16 @@
+<!-- lga_summed_total.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Select Local Government</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+    {% if polling_units %}
+        {% for unit in polling_units %}
+            <p>{{unit}}</p>
+        {% endfor %}
+    {% endif %}
+    {{total_score}}
+{% endblock %}

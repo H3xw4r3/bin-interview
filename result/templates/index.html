@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% for unit in units %}
+
+        <p>
+            <a href="{% url 'pu_result' unit.uniqueid %}">{{unit.polling_unit_name}}</a>
+        </p>
+
+    {% endfor %}
+{% endblock %}

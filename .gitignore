@@ -1,0 +1,13 @@
+# Ignore files with .pyc extension
+*.pyc
+
+# Ignore the entire 'venv' directory
+venv/
+
+# Ignore log files
+*.log
+
+# Ignore files in a specific directory
+data.csv
+
+load_config.load

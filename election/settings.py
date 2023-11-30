@@ -27,11 +27,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='%y3f5ez&-@=0=+ylk)+syx$ov6dg4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('dpg-clje7m6g1b2c73ap3l10-a')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition

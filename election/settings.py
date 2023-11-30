@@ -17,21 +17,22 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ
+
+env = environ.Env()
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', default='%y3f5ez&-@=0=+ylk)+syx$ov6dg4%x03fa2l@%3tims0j0w*r')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
-
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('dpg-clje7m6g1b2c73ap3l10-a')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -94,12 +95,10 @@ WSGI_APPLICATION = "election.wsgi.application"
     }
 }'''
 
+
 DATABASES = {
-    "default": dj_database_url.config(
-        default="postgres://test:gGtgwxQnn0lMDLRFp7VVWDcR8QMYZzLd@dpg-clje7m6g1b2c73ap3l10-a.oregon-postgres.render.com/election_a2sg",
-        conn_max_age=600
-        )
-}
+    "default": dj_database_url.parse(env('DATABASE_URL'))
+    }
 
 
 # Password validation

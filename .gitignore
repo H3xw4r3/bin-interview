@@ -10,4 +10,8 @@ venv/
 # Ignore files in a specific directory
 data.csv
 
+#ignore pgloader file
 load_config.load
+
+#Ignore environmental variable
+election/.env
